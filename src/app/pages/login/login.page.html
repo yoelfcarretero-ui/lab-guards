@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Control de Acceso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Iniciar Sesión</ion-card-title>
+      <ion-card-subtitle>Introduce tus credenciales del sistema</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-input
+        class="ion-margin-bottom"
+        type="text"
+        label="Usuario"
+        labelPlacement="floating"
+        fill="outline"
+        [(ngModel)]="username"
+        placeholder="admin / operador"
+      ></ion-input>
+
+      <ion-input
+        class="ion-margin-bottom"
+        type="password"
+        label="Contraseña"
+        labelPlacement="floating"
+        fill="outline"
+        [(ngModel)]="password"
+        placeholder="123"
+        (keyup.enter)="handleLogin()"
+      ></ion-input>
+
+      <ion-button expand="block" (click)="handleLogin()" class="ion-margin-top">
+        Acceder al Panel
+      </ion-button>
+
+      @if (errorMessage) {
+        <ion-text color="danger">
+          <p class="ion-text-center">{{ errorMessage }}</p>
+        </ion-text>
+      }
+    </ion-card-content>
+  </ion-card>
+</ion-content>
